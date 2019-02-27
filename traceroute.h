@@ -7,6 +7,13 @@ extern "C" {
 
 #include <time.h>
 #include <netinet/in.h>
+
+#ifdef __APPLE__
+#include <netinet/ip.h>
+#define ICMP_EXC_TTL IP_RECVTTL
+#define ICMP_TIME_EXCEEDED ICMP_TIMXCEED
+#endif
+
 #include <netinet/ip_icmp.h>
 #include <netinet/ip.h>
 #include <net/if.h>
@@ -80,10 +87,10 @@ void tracert_icmp(unsigned char * buf, unsigned int size, struct sockaddr_in* do
 void pinger_icmp(struct ping_icmp_param * papram);
 
 /* traceroute the host
- * error : return -1 
+ * error : return -1
  * normal: return 0
  */
-char * traceroute_report(char * host);
+char * traceroute_report(const char * host);
 
 struct timespec time_diff(struct timespec* begin, struct timespec* end);
 

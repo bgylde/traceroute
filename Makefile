@@ -14,7 +14,7 @@ ifeq ($(ENABLE_CHARSET_ICONV), yes)
 endif
 
 #for net diagno communication
-CFLAGS += -DSOCKET_UNIX_DOMAIN_FILE
+CFLAGS += -DSOCKET_UNIX_DOMAIN_FILE -D_GNU_SOURCE
 
 #for traceroute.
 CFLAGS += -DUTC_OFFSET=+0800 -pthread -Wall -MD -D_FORTIFY_SOURCE=2 -Wpointer-arith -Wshadow -Wwrite-strings -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wmissing-noreturn -funit-at-a-time

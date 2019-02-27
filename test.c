@@ -5,7 +5,7 @@
 
 int main(int argc, char * argv[])
 {
-    char * host = "www.baidu.com";
+    const char * host = "www.baidu.com";
 
     switch(argc)
     {

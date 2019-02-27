@@ -107,7 +107,7 @@ int main(int argc, char** argv)
 }
 #endif
 
-char * traceroute_report(char * host)
+char * traceroute_report(const char * host)
 {
     int sockfd = -1;
     int ttl = 1;
