@@ -10,7 +10,7 @@ extern "C" {
 
 #ifdef __APPLE__
 #include <netinet/ip.h>
-#define ICMP_EXC_TTL IP_RECVTTL
+#define ICMP_EXC_TTL 0
 #define ICMP_TIME_EXCEEDED ICMP_TIMXCEED
 #endif
 
@@ -51,7 +51,7 @@ struct pseudo_entete
 {
     u_int32_t ip_source; // Adresse ip source
     u_int32_t ip_destination; // Adresse ip destination
-    char mbz; // Champs ¨¤ 0
+    char mbz; // Champs
     char type; // Type de protocole
     u_int16_t length; // htons( Taille de l'entete Pseudo + Entete TCP ou UDP + Data )
 };
@@ -73,10 +73,10 @@ typedef struct print_ctrl_tag
 
 
 /**
- * \brief analyse le packet retourn¨¦ par le reseau
+ * \brief analyse le packet retournï¿½ï¿½ par le reseau
  * \param buf le buffer contenant le packet
  * \param size la taille du packet
- * \param doctorWho celui qui a envoy¨¦ le packet
+ * \param doctorWho celui qui a envoyï¿½ï¿½ le packet
  */
 //void tracert_icmp(unsigned char* buf, unsigned int size, struct sockaddr_in* doctorWho, int ttl);
 void tracert_icmp(unsigned char * buf, unsigned int size, struct sockaddr_in* doctorWho, int ttl, struct timespec *tbef, print_ctrl_t * print_obj);
@@ -96,8 +96,8 @@ struct timespec time_diff(struct timespec* begin, struct timespec* end);
 
 
 /**
- * \brief affiche le numero puis 3 ¨¦toiles
- * \param i Un numero ¨¤ afficher
+ * \brief affiche le numero puis 3 ï¿½ï¿½toiles
+ * \param i Un numero ï¿½ï¿½ afficher
  */
 void show_asterisk(int i, print_ctrl_t * print_obj);
 
